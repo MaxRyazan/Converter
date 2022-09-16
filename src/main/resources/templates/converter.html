@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converter</title>
+    <style>
+        .container{
+             margin-left: 25%;
+             margin-right: 25%;
+             margin-top: 10%;
+             background-color: white;
+             border: 2px solid darkred;
+             width: 49.5%;
+             height: 500px;
+        }
+        .inputField{
+            height: 30px;
+            width: 150px;
+            border: 2px solid darkred;
+            margin-left: 5%;
+            margin-top: 10%;
+            background-color: #edf4ff;
+        }
+        .select{
+            height: 36px;
+            width: 100px;
+            border: 2px solid darkred;
+            background-color: #edf4ff;
+            margin-top: 10%;
+        }
+        .button{
+            height: 33px;
+            width: 120px;
+            margin-left: 2%;
+            border: 2px solid black;
+            margin-right: 2%;
+        }
+        .result{
+            height: 22px;
+            width: 150px;
+            border: 2px solid darkred;
+            margin-left: 2%;
+            margin-top: 10%;
+            background-color: #edf4ff;
+            float: right;
+            margin-right: 2%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: darkgray">
+    <div class="container">
+    <form name="f" th:action="@{/}" method="post">
+        <label>
+           <input type="number" name="count" placeholder="Количество" class="inputField" required>
+            <select class="select" name="base">
+                <option>Унция</option>
+                <option>Фунт</option>
+                <option>Стоун</option>
+                <option>ЦентнерСША</option>
+                <option>ЦентнерАнгл.</option>
+                <option>Тонна</option>
+            </select>
+            <input type="submit" value="Перевести в:" class="button">
+            <select class="select" name="into">
+                <option>Грамм</option>
+                <option>Килограмм</option>
+                <option>ЦентнерМетр.</option>
+                <option>Тонна</option>
+            </select>
+        </label>
+        <div th:text="${result}" class="result"></div>
+    </form>
+        <div th:text="${error}"></div>
+    </div>
+</body>
+</html>
